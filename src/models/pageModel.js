@@ -1,7 +1,7 @@
 const PAGES = {
   HOME: "home-page",
   ABOUT: "about",
-  CONTACT: "contact",
+  DOWNLOAD: "download",
   SIGNUP: "singup-page",
   LOGIN: "login-page",
 };
