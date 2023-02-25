@@ -5,13 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pic to Pick</title>
+     
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-
+<script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="index.css" />
     <link rel="short icon" href="assets/imgs/favicon.png" />
   </head>
@@ -24,7 +29,7 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Pic to Pick</a>
+          <a class="navbar-brand" href="#"><img src="../public/assets/imgs/favicon.png" alt="logo"> Pic to Pick</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -57,7 +62,7 @@
                 <a class="nav-link" href="#" id="nav-signup-link">Signup</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" id="nav-login-link">Login</a>
+                <a class="nav-link"  href="#"  id="nav-login-link">Login</a>
               </li>
             </ul>
           </div>
@@ -82,47 +87,58 @@
          <form class="row g-3">
            <div class="col-md-6">
     <label for="singup-input-Firstname" class="form-label">First Name</label>
-    <input type="Firstname" class="form-control" id="singup-input-Firstname" placeholder="your name">
+ <input type="Firstname" class="form-control" id="singup-input-Firstname" placeholder="your name">
+    <div class="alert alert-danger d-none" role="alert" id="singup-alert-Firstname">Firstname rules</div>
   </div>
         <div class="col-md-6">
     <label for="singup-input-Famlyname" class="form-label">Famly Name</label>
     <input type="Famlyname" class="form-control" id="singup-input-Famlyname" placeholder="your famly name">
+    <div class="alert alert-danger d-none" role="alert" id="singup-alert-Famlyname">Famlyname rules</div>
   </div>
   <div class="col-md-6">
     <label for="singup-input-Email" class="form-label">Email</label>
     <input type="email" class="form-control" id="singup-input-Email" placeholder="your email">
+   <div class="alert alert-danger d-none" role="alert" id="singup-alert-Email">Email rules</div>
   </div>
   <div class="col-md-6">
     <label for="singup-input-Password" class="form-label">Password</label>
     <input type="password" class="form-control" id="singup-input-Password" placeholder="password">
+     <div class="alert alert-danger d-none" role="alert" id="singup-alert-Password">Password rules</div>
   </div>
   <div class="col-md-6">
     <label for="singup-input-RePassword" class="form-label">RePassword</label>
-    <input type="repassword" class="form-control" id="singup-input-RePassword" placeholder="repassword">
+    <input type="password" class="form-control" id="singup-input-RePassword" placeholder="repassword">
+     <div class="alert alert-danger d-none" role="alert" id="singup-alert-RePassword">RePassword rules</div>
   </div>
     <div class="col-md-6">
     <label for="singup-input-Phone" class="form-label">Phone Number</label>
     <input type="text" class="form-control" id="singup-input-Phone" placeholder="phone number">
+     <div class="alert alert-danger d-none" role="alert" id="singup-alert-Phone">Phone rules</div>
   </div>
   <div class="col-12">
     <label for="singup-input-Address" class="form-label">Address</label>
     <input type="text" class="form-control" id="singup-input-Address" placeholder="1234 Main St">
+  <div class="alert alert-danger d-none" role="alert" id="singup-alert-Address">Address rules</div>
   </div>
   <div class="col-12">
     <label for="singup-input-Address2" class="form-label">Address 2</label>
     <input type="text" class="form-control" id="singup-input-Address2" placeholder="Apartment, studio, or floor">
+    <div class="alert alert-danger d-none" role="alert" id="singup-alert-Address2">Address2 rules</div>
   </div>
   <div class="col-md-6">
     <label for="singup-input-City" class="form-label">City</label>
     <input type="text" class="form-control" id="singup-input-City" placeholder="your city">
+    <div class="alert alert-danger d-none" role="alert" id="singup-alert-City">City rules</div>
   </div>
   <div class="col-md-6">
     <label for="singup-input-State" class="form-label">State</label>
     <input type="text" class="form-control" id="singup-input-State" placeholder="your state">
+    <div class="alert alert-danger d-none" role="alert" id="singup-alert-State">State rules</div>
   </div>
   <div class="col-md-2">
     <label for="singup-input-Zip" class="form-label">Zip Code</label>
     <input type="text" class="form-control" id="singup-input-Zip">
+    <div class="alert alert-danger d-none" role="alert" id="singup-alert-Zip">Zip code rules</div>
   </div>
   <div class="col-12">
     <div class="form-check">
