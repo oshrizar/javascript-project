@@ -58,11 +58,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="#" id="nav-download-link">Download</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item ps-5 ">
                 <a class="nav-link" href="#" id="nav-signup-link">Signup</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="#"  id="nav-login-link">Login</a>
+              <li class="nav-item  ">
+                <a class="nav-link "  href="#"  id="nav-login-link">Login</a>
               </li>
             </ul>
           </div>
@@ -81,10 +81,30 @@
         <div id="download" class="d-none">
           <h1>Download</h1>
         </div>
+        <!-- login -->
+        <div id="login-page" class="d-block">
+          <h1>Login</h1>
+               <form onsubmit="event.preventDefault()"class="row g-3"></form>
+        <div class="col-md-6">
+    <label for="login-input-Email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="login-input-Email" placeholder="your email">
+   <div class="alert alert-danger d-none" role="alert" id="login-alert-Email">Email rules</div>
+   <div class="col-md-12  ">
+    <label for="login-input-Password" class="form-label ">Password</label>
+    <input type="password" class="form-control" id="login-input-Password" placeholder="password">
+     <div class="alert alert-danger d-none" role="alert" id="login-alert-Password">Password rules</div>
+     <div class="alert alert-danger d-none" role="alert" id="login-alert-Password-email">The Email or the Password worng</div>
+  </div>
+  <div class="mb-3 form-check"><input type="checkbox"class="form-check-input"id="exampleCheck1"/><label class="form-check-label" for="exampleCheck1">Check me out</label></div>
+    </div>
+    <div class="col-12">
+    <button type="submit" class="btn btn-primary"  id="login-btn">Login</button> 
+  </div>
+        </div>
         <!-- sign up -->
-        <div id="singup-page" class="d-block">
+        <div id="singup-page" class="d-none ">
           <h1>Singup Page</h1>
-         <form class="row g-3">
+         <form onsubmit="event.preventDefault()"class="row g-3">
            <div class="col-md-6">
     <label for="singup-input-Firstname" class="form-label">First Name</label>
  <input type="Firstname" class="form-control" id="singup-input-Firstname" placeholder="your name">
@@ -99,16 +119,16 @@
     <label for="singup-input-Email" class="form-label">Email</label>
     <input type="email" class="form-control" id="singup-input-Email" placeholder="your email">
    <div class="alert alert-danger d-none" role="alert" id="singup-alert-Email">Email rules</div>
-  </div>
-  <div class="col-md-6">
-    <label for="singup-input-Password" class="form-label">Password</label>
+   <div class="col-md-6  ">
+    <label for="singup-input-Password" class="form-label ">Password</label>
     <input type="password" class="form-control" id="singup-input-Password" placeholder="password">
      <div class="alert alert-danger d-none" role="alert" id="singup-alert-Password">Password rules</div>
   </div>
-  <div class="col-md-6">
-    <label for="singup-input-RePassword" class="form-label">RePassword</label>
+  <div class="col-md-6 ">
+    <label for="singup-input-RePassword" class="form-label ">RePassword</label>
     <input type="password" class="form-control" id="singup-input-RePassword" placeholder="repassword">
      <div class="alert alert-danger d-none" role="alert" id="singup-alert-RePassword">RePassword rules</div>
+     <div class="alert alert-danger d-none" role="alert" id="singup-alert-RePassword2">The Password And The Repassword not equl</div>
   </div>
     <div class="col-md-6">
     <label for="singup-input-Phone" class="form-label">Phone Number</label>
@@ -149,12 +169,10 @@
     </div>
   </div>
   <div class="col-12">
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <button type="submit" class="btn btn-primary" disabled="true" id="signup-btn">Sign in</button>
+    <button type="reset" class="btn btn-primary" >cancel</button>
   </div>
 </form>
-        <!-- login -->
-        <div id="login-page" class="d-none">
-          <h1>Login Page</h1>
         </div>
       </main>
       <footer class="border-top pt-3 d-flex justify-content-center">
