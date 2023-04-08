@@ -1,0 +1,39 @@
+[
+    {
+        "userId": 0,
+        "firstName": "Oshri",
+        "lastName": "Zarbiv",
+        "address": {
+            "state": "Israel",
+            "city": "MOtzkin",
+            "country": "Israel",
+            "street": "Gosen",
+            "houseNumber": 156,
+            "zipCode": ""
+        },
+        "email": "kenny@gmail.com",
+        "password": "No31383138!",
+        "phone": "",
+        "isAdmin": true,
+        "cart": []
+    },
+    {
+        "userId": 1,
+        "firstName": "Hai",
+        "lastName": "Cohen",
+        "address": {
+            "state": "Israel",
+            "city": "Nazerth",
+            "country": "Israel",
+            "street": "MOhamad",
+            "houseNumber": 157,
+            "zipCode": ""
+        },
+        "email": "pgiw@walla.co.il",
+        "password": "Aa123456!",
+        "phone": "",
+        "isAdmin": false,
+        "cart": []
+    }
+]
+

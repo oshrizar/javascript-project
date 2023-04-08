@@ -4,6 +4,8 @@ const ABOUTPAGELINK = document.getElementById(PAGES.ABOUT);
 const DOWNLOADPAGELINK = document.getElementById(PAGES.DOWNLOAD);
 const SIGNUPPAGELINK = document.getElementById(PAGES.SIGNUP);
 const LOGINPAGELINK = document.getElementById(PAGES.LOGIN);
+const PROFILEPAGE = document.getElementById(PAGES.PROFILE);
+const PAGE404 = document.getElementById(PAGES.PAGE404);
 
 function handlePageChange(toPageDisplay) {
   /* HIDE ALL PAGES */
@@ -12,11 +14,15 @@ function handlePageChange(toPageDisplay) {
   DOWNLOADPAGELINK.classList.remove("d-block");
   SIGNUPPAGELINK.classList.remove("d-block");
   LOGINPAGELINK.classList.remove("d-block");
+  PROFILEPAGE.classList.remove("d-block");
+  PAGE404.classList.remove("d-block");
   HOMEPAGELINK.classList.add("d-none");
   ABOUTPAGELINK.classList.add("d-none");
   DOWNLOADPAGELINK.classList.add("d-none");
   SIGNUPPAGELINK.classList.add("d-none");
   LOGINPAGELINK.classList.add("d-none");
+  PROFILEPAGE.classList.add("d-none");
+  PAGE404.classList.add("d-none");
 
   switch (toPageDisplay) {
     case PAGES.HOME:
@@ -39,6 +45,15 @@ function handlePageChange(toPageDisplay) {
       LOGINPAGELINK.classList.remove("d-none");
       LOGINPAGELINK.classList.add("d-block");
       break;
+    case PAGES.PROFILE:
+      PROFILEPAGE.classList.remove("d-none");
+      PROFILEPAGE.classList.add("d-block");
+      break;
+    default:
+      PAGE404.classList.remove("d-none");
+      PAGE404.classList.add("d-block");
+      break;
   }
 }
+
 export { handlePageChange };

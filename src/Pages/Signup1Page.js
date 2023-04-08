@@ -5,21 +5,39 @@ import validatePassword from "../validation/validatePassword.js";
 import validateRePassword from "../validation/validateRePassword.js";
 import validateFirstname from "../validation/validateFirstname.js";
 import validateFamlyname from "../validation/validateFamlyname.js";
+import User from "../models/User.js";
+import showToast from "../services/Toast.js";
 const inputFirstname = document.getElementById("singup-input-Firstname");
 const inputFamlyname = document.getElementById("singup-input-Famlyname");
 const inputEmail = document.getElementById("singup-input-Email");
 const inputPassword = document.getElementById("singup-input-Password");
 const inputRePassword = document.getElementById("singup-input-RePassword");
 const inputPhone = document.getElementById("singup-input-Phone");
-const inputAddress = document.getElementById("singup-input-Address");
-const inputAddress2 = document.getElementById("singup-input-Address2");
+const inputContry = document.getElementById("singup-input-Contry");
+const inputStreet = document.getElementById("singup-input-Street");
+const inputhouseNumber = document.getElementById("singup-input-houseNumber");
 const inputCity = document.getElementById("singup-input-City");
 const inputState = document.getElementById("singup-input-State");
 const inputZip = document.getElementById("singup-input-Zip");
 const btnSignup = document.getElementById("signup-btn");
-let emailOk = false;
-let passwordOk = false;
-let repasswordOk = false;
+const btnCancel = document.getElementById("signup-cancel");
+const isAdmin = document.getElementById("singup-input-isAdmin");
+let firstNameOk;
+let famlyNameOk;
+let emailOk;
+let passwordOk;
+let repasswordOk;
+
+const checkIfCanEnableBtn = () => {
+  btnSignup.disabled = !(
+    firstNameOk &&
+    famlyNameOk &&
+    emailOk &&
+    passwordOk &&
+    repasswordOk
+  );
+};
+
 window.addEventListener("load", () => {
   if (inputFirstname.value == !"") {
     checkFirstname();
@@ -39,11 +57,15 @@ window.addEventListener("load", () => {
   if (inputPhone.value == !"") {
     checkphoneInput();
   }
-  if (inputAddress.value == !"") {
-    checkAddressInput();
+
+  if (inputContry.value == !"") {
+    checkContryInput();
   }
-  if (inputAddress2.value == !"") {
-    checkAddress2Input();
+  if (inputStreet.value == !"") {
+    checkStreetInput();
+  }
+  if (inputhouseNumber.value == !"") {
+    checkhouseNumberInput();
   }
   if (inputCity.value == !"") {
     checkCityInput();
@@ -60,6 +82,7 @@ const checkFirstname = () => {
   if (errorArr.length === 0) {
     inputFirstname.classList.remove("is-invalid");
     document.getElementById("singup-alert-Firstname").classList.add("d-none");
+    firstNameOk = true;
   } else {
     if (inputFirstname.value.length == 0) {
       document.getElementById("singup-alert-Firstname").innerText =
@@ -74,16 +97,21 @@ const checkFirstname = () => {
       .classList.remove("d-none");
     document.getElementById("singup-alert-Firstname").innerHTML =
       errorArr.join("<br>");
+    firstNameOk = false;
   }
-  inputFirstname.addEventListener("input", () => {
-    checkFirstname();
-  });
+  checkIfCanEnableBtn();
 };
+
+inputFirstname.addEventListener("input", () => {
+  checkFirstname();
+});
+
 const checkFamlynameInput = () => {
   let errorArr = validateFamlyname(inputFamlyname.value);
   if (errorArr.length === 0) {
     inputFamlyname.classList.remove("is-invalid");
     document.getElementById("singup-alert-Famlyname").classList.add("d-none");
+    famlyNameOk = true;
   } else {
     if (inputFamlyname.value.length == 0) {
       document.getElementById("singup-alert-Famlyname").innerText =
@@ -98,11 +126,14 @@ const checkFamlynameInput = () => {
       .classList.remove("d-none");
     document.getElementById("singup-alert-Famlyname").innerHTML =
       errorArr.join("<br>");
+    famlyNameOk = false;
   }
-  inputFamlyname.addEventListener("input", () => {
-    checkFamlynameInput();
-  });
+  checkIfCanEnableBtn();
 };
+inputFamlyname.addEventListener("input", () => {
+  checkFamlynameInput();
+});
+
 const checkEmailInput = () => {
   let errorArr = validateEmail(inputEmail.value);
   if (errorArr.length === 0) {
@@ -204,52 +235,70 @@ const checkphoneInput = () => {
     inputPhone.classList.add("is-invalid");
     document.getElementById("singup-alert-Phone").classList.remove("d-none");
   }
-  inputPhone.addEventListener("input", () => {
-    checkphoneInput();
-  });
 };
+inputPhone.addEventListener("input", () => {
+  checkphoneInput();
+});
 
-const checkAddressInput = () => {
+const checkContryInput = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-s]{2,255}$", "g");
-  if (reg.test(inputAddress.value)) {
-    inputAddress.classList.remove("is-invalid");
-    document.getElementById("singup-alert-Address").classList.add("d-none");
+  if (reg.test(inputContry.value)) {
+    inputContry.classList.remove("is-invalid");
+    document.getElementById("singup-alert-Contry").classList.add("d-none");
   } else {
-    if (inputAddress.value.length == 0) {
-      document.getElementById("singup-alert-Address").innerText =
-        "Empty Address";
+    if (inputContry.value.length == 0) {
+      document.getElementById("singup-alert-Contry").innerText = "Empty contry";
     } else {
-      document.getElementById("singup-alert-Address").innerText =
-        "Address rules";
+      document.getElementById("singup-alert-Contry").innerText = "contry rules";
     }
-    inputAddress.classList.add("is-invalid");
-    document.getElementById("singup-alert-Address").classList.remove("d-none");
+    inputContry.classList.add("is-invalid");
+    document.getElementById("singup-alert-Contry").classList.remove("d-none");
   }
-  inputAddress.addEventListener("input", () => {
-    checkAddressInput();
-  });
 };
+inputContry.addEventListener("input", () => {
+  checkContryInput();
+});
 
-const checkAddress2Input = () => {
+const checkStreetInput = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-s]{2,255}$", "g");
-  if (reg.test(inputAddress2.value)) {
-    inputAddress2.classList.remove("is-invalid");
-    document.getElementById("singup-alert-Address2").classList.add("d-none");
+  if (reg.test(inputStreet.value)) {
+    inputStreet.classList.remove("is-invalid");
+    document.getElementById("singup-alert-Street").classList.add("d-none");
   } else {
-    if (inputAddress2.value.length == 0) {
-      document.getElementById("singup-alert-Address2").innerText =
-        "Empty Address2";
+    if (inputStreet.value.length == 0) {
+      document.getElementById("singup-alert-Street").innerText = "Empty Street";
     } else {
-      document.getElementById("singup-alert-Address2").innerText =
-        "Address2 rules";
+      document.getElementById("singup-alert-Street").innerText = "Street rules";
     }
-    inputAddress2.classList.add("is-invalid");
-    document.getElementById("singup-alert-Address2").classList.remove("d-none");
+    inputStreet.classList.add("is-invalid");
+    document.getElementById("singup-alert-Street").classList.remove("d-none");
   }
-  inputAddress2.addEventListener("input", () => {
-    checkAddress2Input();
-  });
 };
+inputStreet.addEventListener("input", () => {
+  checkStreetInput();
+});
+const checkhouseNumberInput = () => {
+  const reg = new RegExp("^[0-9]{1,255}$", "g");
+  if (reg.test(inputhouseNumber.value)) {
+    inputhouseNumber.classList.remove("is-invalid");
+    document.getElementById("singup-alert-houseNumber").classList.add("d-none");
+  } else {
+    if (inputhouseNumber.value.length == 0) {
+      document.getElementById("singup-alert-houseNumber").innerText =
+        "Empty houseNumber";
+    } else {
+      document.getElementById("singup-alert-houseNumber").innerText =
+        "houseNumber rules";
+    }
+    inputhouseNumber.classList.add("is-invalid");
+    document
+      .getElementById("singup-alert-houseNumber")
+      .classList.remove("d-none");
+  }
+};
+inputhouseNumber.addEventListener("input", () => {
+  checkhouseNumberInput();
+});
 
 const checkCityInput = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-s]{2,255}$", "g");
@@ -265,10 +314,11 @@ const checkCityInput = () => {
     inputCity.classList.add("is-invalid");
     document.getElementById("singup-alert-City").classList.remove("d-none");
   }
-  inputCity.addEventListener("input", () => {
-    checkCityInput();
-  });
 };
+inputCity.addEventListener("input", () => {
+  checkCityInput();
+});
+
 const checkStateInput = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-s]{2,255}$", "g");
   if (reg.test(inputState.value)) {
@@ -283,10 +333,11 @@ const checkStateInput = () => {
     inputState.classList.add("is-invalid");
     document.getElementById("singup-alert-State").classList.remove("d-none");
   }
-  inputState.addEventListener("input", () => {
-    checkStateInput();
-  });
 };
+inputState.addEventListener("input", () => {
+  checkStateInput();
+});
+
 const checkZipInput = () => {
   const reg = new RegExp("^[0-9]{2,255}$", "g");
   if (reg.test(inputZip.value)) {
@@ -301,36 +352,43 @@ const checkZipInput = () => {
     inputZip.classList.add("is-invalid");
     document.getElementById("singup-alert-Zip").classList.remove("d-none");
   }
-  inputZip.addEventListener("input", () => {
-    checkZipInput();
-  });
+};
+inputZip.addEventListener("input", () => {
+  checkZipInput();
+});
+const checkAdmin = () => {
+  isAdmin = document.getElementById("singup-input-isAdmin");
+  if (!isAdmin) {
+    return false;
+  }
+  checkAdmin();
+  return isAdmin;
 };
 
-const checkIfCanEnableBtn = () =>
-  (btnSignup.disabled = !(emailOk && passwordOk && repasswordOk));
-
 btnSignup.addEventListener("click", () => {
-  if (!(emailOk && passwordOk && repasswordOk)) {
+  if (!firstNameOk && famlyNameOk && emailOk && passwordOk && repasswordOk) {
     //if someone changed the html from dev tools
     return;
   }
+
   let users = localStorage.getItem("users");
+  let nextUserId = localStorage.getItem("nextUserId");
+  nextUserId = +nextUserId;
+  let newUser = new User(
+    nextUserId++,
+    inputFirstname.value,
+    inputFamlyname.value,
+    inputEmail.value,
+    inputPassword.value,
+    inputRePassword.value,
+
+    isAdmin.checked
+  );
+  localStorage.setItem("nextUserId", nextUserId + "");
+
   if (!users) {
-    //the first user
-    users = [
-      {
-        name: inputFirstname.value,
-        email: inputEmail.value,
-        password: inputPassword.value,
-      },
-    ];
+    users = [newUser];
     localStorage.setItem("users", JSON.stringify(users));
-    /*
-      JSON.stringify(users) - convert array of objects to string
-      localStorage.setItem - store the json string to localStorage with 
-        key users 
-        and value users as json string
-    */
   } else {
     //we have users
     users = JSON.parse(users); // convert from string to array of objects
@@ -338,20 +396,31 @@ btnSignup.addEventListener("click", () => {
     for (let user of users) {
       if (user.email === inputEmail.value) {
         //display msg - email already exists
-        console.log("email already exists");
+        showToast("Email already exists", false);
         return;
       }
     }
+
     //user provided new email
-    users = [
-      ...users,
-      {
-        name: inputFirstname.value,
-        email: inputEmail.value,
-        password: inputPassword.value,
-      },
-    ];
+    users = [...users, newUser];
     localStorage.setItem("users", JSON.stringify(users));
+    document
+      .getElementById("signup-form")
+      .querySelectorAll("input")
+      .forEach((item) => {
+        item.value = "";
+        handlePageChange(PAGES.LOGIN);
+      });
   }
-  handlePageChange(PAGES.LOGIN);
+});
+btnCancel.addEventListener("click", () => {
+  location.reload;
+});
+document.getElementById("signup-cancel").addEventListener("click", () => {
+  document
+    .getElementById("signup-form")
+    .querySelectorAll("input")
+    .forEach((item) => {
+      item.value = "";
+    });
 });

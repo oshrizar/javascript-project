@@ -1,0 +1,36 @@
+[
+  {
+    picId: 0,
+    createdAt: "08.04.2023",
+    url: "https://images.pexels.com/photos/5816293/pexels-photo-5816293.jpeg",
+    title: "Working togther",
+    location: "Microsoft office ",
+    description: "we try to work with out chatgpt.",
+    price: 10,
+    credit: "noga from Pixabay",
+    alt: "work in the office",
+  },
+  {
+    picId: 1,
+    createdAt: "08.04.2023",
+    url: "https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "santa place",
+    location: "north Pole",
+    description:
+      "tho house of santa is thr north pole and when arvvied crismes we have many lights",
+    price: 7,
+    credit: "niger from Pixabay",
+    alt: "santa north pole",
+  },
+  {
+    picId: 2,
+    createdAt: "08.04.2023",
+    url: "https://images.pexels.com/photos/3608263/pexels-photo-3608263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "the panda",
+    location: "in the forrest",
+    description: "the maby seen qute but be carful",
+    price: 3,
+    credit: "Doby from Pixabay",
+    alt: "qute panda",
+  },
+];

@@ -1,184 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pic to Pick</title>
-     
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-<script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="short icon" href="assets/imgs/favicon.png" />
-  </head>
-  <body>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
-    <div class="container">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="../public/assets/imgs/favicon.png" alt="logo"> Pic to Pick</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="#"
-                  id="nav-home-link"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="nav-about-link">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="nav-download-link">Download</a>
-              </li>
-              <li class="nav-item ps-5 ">
-                <a class="nav-link" href="#" id="nav-signup-link">Signup</a>
-              </li>
-              <li class="nav-item  ">
-                <a class="nav-link "  href="#"  id="nav-login-link">Login</a>
-              </li>
-            </ul>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pic to Pick</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="toast.css" />
+  <link rel="short icon" href="assets/imgs/favicon.png" />
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="../public/assets/imgs/favicon.png" alt="logo" /> Pic to
+          Pick</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto my-2 my-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" id="nav-home-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#" id="nav-about-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active bi bi-download" href="#" id="nav-download-link">Download</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active bi bi-upload" href="#" id="nav-add-new-photo-link">Upload new photo</a>
+            </li>
+
+          </ul>
+          <form class="d-flex responsive-nav-flex  " role="search" id="navBeforeLogin">
+            <a class="nav-link me-3 active" href="#" id="nav-signup-link">Signup</a>
+            <a class="nav-link responsive-mt active" href="#" id="nav-login-link">Login</a>
+          </form>
+          <form class="d-flex responsive-nav-flex d-none" role="search" id="navAfterLogin">
+            <a class="nav-link me-3 active" href="#" id="nav-edit-profile-page">Name</a>
+            <a class="nav-link responsive-mt active" href="#" id="nav-logout">Logout</a>
+          </form>
+
+        </div>
+      </div>
+    </nav>
+    <div id="toast"></div>
+    <main>
+      <div class="popup-wrapper d-flex justify-content-center align-items-center d-none" id="tryPopup">
+      </div>
+
+      <!-- home page -->
+      <div id="home-page" class="d-block ">
+        <h1>Home Page</h1>
+        <div class="popup-wrapper d-flex justify-content-center align-items-center d-none" id="editPhotosPopup">
+          <div class="popup-div" id="editPhotosPopupChild">
+            <div class="card">
+              <img src="${img}" class="card-img-top" alt="${name}" id="editPhotosPopupDisplayImg" />
+              <div class="card-body">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" placeholder="Name" id="editPhotosPopupName">
+                  <label for="editPhotosPopupName">Name</label>
+                </div>
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="description" id="editPhotosPopupDescription"></textarea>
+                  <label for="editPhotosPopupDescription">Description</label>
+                </div>
+
+                </p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="form-floating mb-3">
+
+                    <input type="text" class="form-control" placeholder="price" id="editPhotosPopupPrice">
+                    <label for="editPhotosPopupPrice">Price</label>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="form-floating mb-3">
+
+                    <input type="url" class="form-control" placeholder="Img" id="editPhotosPopupImg">
+                    <label for="editPhotosPopupImg">Img</label>
+                  </div>
+                </li>
+                <li class="list-group-item">A second item</li>
+
+              </ul>
+              <div class="card-body">
+                <button type="button" class="btn btn-success"><i class="bi bi-check-circle-fill"
+                    id="editPhotosPopupSaveBtn"></i>
+                  save
+                </button>
+
+                </button>
+                <button type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"
+                    id="editPhotosPopupCancelBtn"></i>cancel</button>
+              </div>
+            </div>
           </div>
         </div>
-      </nav>
-      <main>
-        <!-- home page -->
-        <div id="home-page" class="d-none">
-          <h1>Home Page</h1>
+        <div class="d-flex justify-content-between mb-3">
+          <div>
+            <button type="button" class="btn btn-info bi bi-card-list" id="homeDisplayList">l</button>
+            <button type="button" class="btn btn-info bi bi-microsoft" id="homeDisplayGallery">g</button>
+            <button type="button" class="btn btn-info bi bi-collection-play-fill" id="homeDisplayCarusel">c</button>
+          </div>
+          <div class="d-flex gap-2 mb-3 mt-3" id="UpandDownBtns">
+            <button type="button" class="btn btn-info bi bi bi-sort-alpha-down" id="homeDisplayDown">c</button><button
+              type="button" class="btn btn-info bi bi bi-sort-alpha-up-alt" id="homeDisplayUp">c</button>
+          </div>
+
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+              id="homeDisplaySearch">
+
+          </form>
         </div>
+        <div id="photoGallery">
+          <div class="have row row-cols-1 row-cols-md-3 g-4 d-b" id="home-page-photos-gallery"></div>
+        </div>
+        <div id="photoList" class="have d-none">
+          <ul class=" list-group  " id="home-page-photos-list">
+          </ul>
+        </div>
+        <div id="photoCarusel
+                " class="dis carousel slide me-auto ms-auto d-block" data-bs-ride="carousel">
+          <div class="text-center mb-2">
+            <h5>Welcome </h5>
+            <h6>Press on some picture for more deatels.</h6>
+          </div>
+          <div class="carousel-inner" id="home-page-photos-carusel
+                ">
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
         <!-- about -->
         <div id="about" class="d-none">
           <h1>About</h1>
+          <h3 class="display-5 mb-3">How this site work</h3>
+          <section class="d-flex flex-column flex-md-row gap-5 bg-info p-4 rounded-3">
+            <div>
+
+            </div>
+            <div>
+              <h3 class="fw-bold fs-1">Welcome Pic to Pick!</h3>
+              <p class=" fs-3"> Pic to Pick is website store only for pictures. <br>
+                the users can to share they pictures with other users.<br>
+                all pictures in the site you can buy. <br>
+                Pic to Pick dont give a limit on the price . <br>
+                we prefer the min price 1$ and the max price 10$. <br>
+                only members they are admin can upload pictures.</p>
+            </div>
+          </section>
+          <section class="d-flex flex-column flex-md-row gap-5 bg-info-subtle p-4 mt-3 rounded-3">
+            <div>
+              <h3 class="fw-bold fs-1">How to signup!</h3>
+              <p class="fs-3">click on signup button and fill the fields when you have field with the sign * <br> it
+                requires fileds without fill them you cant signup !
+                if you want upload photos you need click checkbox isAdmin if you want only download dont click isAdmin .
+                <br>
+                See you soon!
+              </p>
+            </div>
+            <div>
+
+            </div>
+          </section>
+          <section class="d-flex flex-column flex-md-row gap-5 bg-info p-4 mt-3 rounded-3">
+            <div>
+
+            </div>
+            <div>
+              <h3 class="fw-bold fs-1">login page</h3>
+              <p class=" fs-3">after signup you can login if you dont signup click signup in button in the navbar</p>
+            </div>
+          </section>
+          <section class="d-flex flex-column flex-md-row gap-5 bg-info-subtle p-4 mt-3 rounded-3">
+            <div>
+              <h3 class="fw-bold fs-1">how to start!</h3>
+              <p class=" fs-3">you can choose how to see the pictures in my site . <br>
+                you can see in a list with description name date title and more <br>
+                gallry you can to see large photos with description <br>
+                carousel you can see only the photos without description and you can switch picture with next and
+                pervious
+                button. <br>
+                when do you click button buy on the picture it is download and you can see in page download . <br>
+                if you click button edit you can edit the photo and description. <br>
+                you can upload photo you need click on the navbar upload new photo and fill all the fileds . <br>
+                Enjoy Pic to Pick </p>
+            </div>
+            <div>
+
+            </div>
+          </section>
         </div>
-        <!-- download -->
-        <div id="download" class="d-none">
-          <h1>Download</h1>
+
+      </div>
+      <!-- download -->
+      <div id="downlod-page" class="d-none">
+        <h1 class="display-2 text-center">Download</h1>
+        <div id="downloaddiv" class="d-flex flex-wrap justify-content-around justify-content-md-start gap-2">
+          <div class="alert alert-info" role="alert">
+            The page Download is empty you can buy picture and fill it up!
+          </div>
         </div>
-        <!-- login -->
-        <div id="login-page" class="d-block">
-          <h1>Login</h1>
-               <form onsubmit="event.preventDefault()"class="row g-3"></form>
-        <div class="col-md-6">
-    <label for="login-input-Email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="login-input-Email" placeholder="your email">
-   <div class="alert alert-danger d-none" role="alert" id="login-alert-Email">Email rules</div>
-   <div class="col-md-12  ">
-    <label for="login-input-Password" class="form-label ">Password</label>
-    <input type="password" class="form-control" id="login-input-Password" placeholder="password">
-     <div class="alert alert-danger d-none" role="alert" id="login-alert-Password">Password rules</div>
-     <div class="alert alert-danger d-none" role="alert" id="login-alert-Password-email">The Email or the Password worng</div>
+      </div>
+
+      <!-- login -->
+      <div id="login-page" class="d-none">
+        <h1>Login</h1>
+        <form onsubmit="event.preventDefault()" class="row g-3" id="login-from">
+          <div class="col-md-6">
+            <label for="login-input-Email" class="form-label">Email<span class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="login-input-Email" placeholder="your email" />
+            <div class="alert alert-danger d-none" role="alert" id="login-alert-Email">
+              Email rules
+            </div>
+            <div class="col-md-12">
+              <label for="login-input-Password" class="form-label">Password<span class="text-danger">*</span></label>
+              <input type="password" class="form-control" id="login-input-Password" placeholder="password" />
+              <div class="alert alert-danger d-none" role="alert" id="login-alert-Password">
+                Password rules
+              </div>
+              <div class="alert alert-danger d-none" role="alert" id="login-alert-Password-email">
+                The Email or the Password worng
+              </div>
+            </div><br>
+
+            <button type="submit" class="btn btn-primary" id="login-btn">
+              Login
+            </button><br><br>
+            <button type="submit" class="btn btn-primary" id="login-cancel">
+              Cancel
+            </button><br>
+            <small class="text-muted lead">to signup <a href="#" id="login-move-signup">Click Here
+              </a></small>
+
+          </div>
+        </form>
+      </div>
+      <!-- sign up -->
+      <div id="singup-page" class="d-none">
+        <h1>Singup Page</h1>
+        <form onsubmit="event.preventDefault()" class="row g-3" id="signup-form">
+          <label for="name" class="fw-bold">Name:</label>
+          <div class="col-md-6">
+            <label for="singup-input-Firstname" class="form-label">First name<span class="text-danger">*</span></label>
+            <input type="Firstname" class="form-control" id="singup-input-Firstname" placeholder="your name" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-Firstname">
+              Firstname rules
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="singup-input-Famlyname" class="form-label">Famly Name<span class="text-danger">*</span></label>
+            <input type="Famlyname" class="form-control" id="singup-input-Famlyname" placeholder="your famly name" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-Famlyname">
+              Famlyname rules
+            </div>
+          </div>
+          <label for="address" class="fw-bold">Address:</label>
+          <div class="col-md-4">
+            <label for="singup-input-Contry" class="form-label">Country</label>
+            <input type="text" class="form-control" id="singup-input-Contry" placeholder="Country" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-Contry">
+              Country rules
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="singup-input-Street" class="form-label">Street</label>
+            <input type="text" class="form-control" id="singup-input-Street" placeholder="Street" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-Street">
+              Street rules
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <label for="singup-input-houseNumber" class="form-label">House Number</label>
+            <input type="text" class="form-control" id="singup-input-houseNumber" placeholder="houseNumber" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-Street">
+              houseNumber rules
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="singup-input-City" class="form-label">City</label>
+            <input type="text" class="form-control" id="singup-input-City" placeholder="your city" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-City">
+              City rules
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="singup-input-State" class="form-label">State</label>
+            <input type="text" class="form-control" id="singup-input-State" placeholder="your state" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-State">
+              State rules
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="singup-input-Zip" class="form-label">Zip Code</label>
+            <input type="text" class="form-control" id="singup-input-Zip" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-Zip">
+              Zip code rules
+            </div>
+          </div>
+          <label for="meansOfCash" class="fw-bold">Means of contact:</label>
+          <div class="col-md-6">
+            <label for="singup-input-Email" class="form-label">Email<span class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="singup-input-Email" placeholder="your email" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-Email">
+              Email rules
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="singup-input-Phone" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="singup-input-Phone" placeholder="phone number" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-Phone">
+              Phone rules
+            </div>
+          </div>
+          <label for="security" class="fw-bold">Security:</label>
+          <div class="col-md-6">
+            <label for="singup-input-Password" class="form-label">Password<span class="text-danger">*</span></label>
+            <input type="password" class="form-control" id="singup-input-Password" placeholder="password" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-Password">
+              Password rules
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="singup-input-RePassword" class="form-label">RePassword<span class="text-danger">*</span></label>
+            <input type="password" class="form-control" id="singup-input-RePassword" placeholder="repassword" />
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-RePassword">
+              RePassword rules
+            </div>
+            <div class="alert alert-danger d-none" role="alert" id="singup-alert-RePassword2">
+              The Password And The Repassword not equl
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input-" type="checkbox" id="singup-input-isAdmin" />
+              <label class="form-check-label" for="singup-input-isAdmin">
+                isAdmin
+              </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary" disabled="true" id="signup-btn">
+              Sign in
+            </button>
+            <button type="reset" class="btn btn-primary" id="signup-cancel">cancel</button>
+          </div>
+      </div>
+      </form>
   </div>
-  <div class="mb-3 form-check"><input type="checkbox"class="form-check-input"id="exampleCheck1"/><label class="form-check-label" for="exampleCheck1">Check me out</label></div>
-    </div>
-    <div class="col-12">
-    <button type="submit" class="btn btn-primary"  id="login-btn">Login</button> 
-  </div>
+  <div id="profile-page" class="d-none">
+    <h1>Profile Page</h1>
+    <form onsubmit="event.preventDefault()" class="row g-3">
+      <div class="col-md-6">
+        <label for="singup-input-Firstname" class="form-label">First name</label>
+        <input type="Firstname" class="form-control" id="profile-input-Firstname" placeholder="your name" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-Firstname">
+          Firstname rules
         </div>
-        <!-- sign up -->
-        <div id="singup-page" class="d-none ">
-          <h1>Singup Page</h1>
-         <form onsubmit="event.preventDefault()"class="row g-3">
-           <div class="col-md-6">
-    <label for="singup-input-Firstname" class="form-label">First Name</label>
- <input type="Firstname" class="form-control" id="singup-input-Firstname" placeholder="your name">
-    <div class="alert alert-danger d-none" role="alert" id="singup-alert-Firstname">Firstname rules</div>
-  </div>
-        <div class="col-md-6">
-    <label for="singup-input-Famlyname" class="form-label">Famly Name</label>
-    <input type="Famlyname" class="form-control" id="singup-input-Famlyname" placeholder="your famly name">
-    <div class="alert alert-danger d-none" role="alert" id="singup-alert-Famlyname">Famlyname rules</div>
-  </div>
-  <div class="col-md-6">
-    <label for="singup-input-Email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="singup-input-Email" placeholder="your email">
-   <div class="alert alert-danger d-none" role="alert" id="singup-alert-Email">Email rules</div>
-   <div class="col-md-6  ">
-    <label for="singup-input-Password" class="form-label ">Password</label>
-    <input type="password" class="form-control" id="singup-input-Password" placeholder="password">
-     <div class="alert alert-danger d-none" role="alert" id="singup-alert-Password">Password rules</div>
-  </div>
-  <div class="col-md-6 ">
-    <label for="singup-input-RePassword" class="form-label ">RePassword</label>
-    <input type="password" class="form-control" id="singup-input-RePassword" placeholder="repassword">
-     <div class="alert alert-danger d-none" role="alert" id="singup-alert-RePassword">RePassword rules</div>
-     <div class="alert alert-danger d-none" role="alert" id="singup-alert-RePassword2">The Password And The Repassword not equl</div>
-  </div>
-    <div class="col-md-6">
-    <label for="singup-input-Phone" class="form-label">Phone Number</label>
-    <input type="text" class="form-control" id="singup-input-Phone" placeholder="phone number">
-     <div class="alert alert-danger d-none" role="alert" id="singup-alert-Phone">Phone rules</div>
-  </div>
-  <div class="col-12">
-    <label for="singup-input-Address" class="form-label">Address</label>
-    <input type="text" class="form-control" id="singup-input-Address" placeholder="1234 Main St">
-  <div class="alert alert-danger d-none" role="alert" id="singup-alert-Address">Address rules</div>
-  </div>
-  <div class="col-12">
-    <label for="singup-input-Address2" class="form-label">Address 2</label>
-    <input type="text" class="form-control" id="singup-input-Address2" placeholder="Apartment, studio, or floor">
-    <div class="alert alert-danger d-none" role="alert" id="singup-alert-Address2">Address2 rules</div>
-  </div>
-  <div class="col-md-6">
-    <label for="singup-input-City" class="form-label">City</label>
-    <input type="text" class="form-control" id="singup-input-City" placeholder="your city">
-    <div class="alert alert-danger d-none" role="alert" id="singup-alert-City">City rules</div>
-  </div>
-  <div class="col-md-6">
-    <label for="singup-input-State" class="form-label">State</label>
-    <input type="text" class="form-control" id="singup-input-State" placeholder="your state">
-    <div class="alert alert-danger d-none" role="alert" id="singup-alert-State">State rules</div>
-  </div>
-  <div class="col-md-2">
-    <label for="singup-input-Zip" class="form-label">Zip Code</label>
-    <input type="text" class="form-control" id="singup-input-Zip">
-    <div class="alert alert-danger d-none" role="alert" id="singup-alert-Zip">Zip code rules</div>
-  </div>
-  <div class="col-12">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Admin
-      </label>
-    </div>
-  </div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary" disabled="true" id="signup-btn">Sign in</button>
-    <button type="reset" class="btn btn-primary" >cancel</button>
-  </div>
-</form>
+      </div>
+      <div class="col-md-6">
+        <label for="profile-input-Famlyname" class="form-label">Famly Name</label>
+        <input type="Famlyname" class="form-control" id="profile-input-Famlyname" placeholder="your famly name" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-Famlyname">
+          Famlyname rules
         </div>
-      </main>
-      <footer class="border-top pt-3 d-flex justify-content-center">
-        2023©️
-      </footer>
-    </div>
-    <script src="../src/app.js" type="module"></script>
-  </body>
+      </div>
+      <div class="col-md-6">
+        <label for="profile-input-Email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="profile-input-Email" placeholder="your email" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-Email">
+          Email rules
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="profile-input-Password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="profile-input-Password" placeholder="password" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-Password">
+          Password rules
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="profile-input-RePassword" class="form-label">RePassword</label>
+        <input type="password" class="form-control" id="profile-input-RePassword" placeholder="repassword" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-RePassword">
+          RePassword rules
+        </div>
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-RePassword2">
+          The Password And The Repassword not equl
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="profile-input-Phone" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="profile-input-Phone" placeholder="phone number" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-Phone">
+          Phone rules
+        </div>
+      </div>
+      <div class="col-12">
+        <label for="profile-input-Address" class="form-label">Address</label>
+        <input type="text" class="form-control" id="profile-input-Address" placeholder="1234 Main St" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-Address">
+          Address rules
+        </div>
+      </div>
+      <div class="col-12">
+        <label for="profile-input-Country" class="form-label">Country</label>
+        <input type="text" class="form-control" id="profile-input-Contry" placeholder="Country" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-Country">
+          Country rules
+        </div>
+      </div>
+      <div class="col-12">
+        <label for="profile-input-Street" class="form-label">Street</label>
+        <input type="text" class="form-control" id="profile-input-Street" placeholder="Street" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-Street">
+          Street rules
+        </div>
+      </div>
+      <div class="col-12">
+        <label for="profile-input-houseNumber" class="form-label">House Number</label>
+        <input type="text" class="form-control" id="profile-input-houseNumber" placeholder="houseNumber" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-Street">
+          houseNumber rules
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="profile-input-City" class="form-label">City</label>
+        <input type="text" class="form-control" id="profile-input-City" placeholder="your city" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-City">
+          City rules
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="profile-input-State" class="form-label">State</label>
+        <input type="text" class="form-control" id="profile-input-State" placeholder="your state" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-State">
+          State rules
+        </div>
+      </div>
+      <div class="col-md-2">
+        <label for="profile-input-Zip" class="form-label">Zip Code</label>
+        <input type="text" class="form-control" id="profile-input-Zip" />
+        <div class="alert alert-danger d-none" role="alert" id="profile-alert-Zip">
+          Zip code rules
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input-" type="checkbox" id="profile-input-isAdmin" />
+          <label class="form-check-label" for="profile-input-isAdmin">
+            isAdmin
+          </label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary" disabled="true" id="profile-btn">
+          Update
+        </button>
+        <button type="reset" class="btn btn-primary">cancel</button>
+      </div>
+  </div>
+  </form>
+  </div>
+  <!-- 404 page -->
+  <div class="d-none" id="404-page">
+    <h2 class="display-2">404</h2>
+    <h3 class="display-4">Page Not Found</h3>
+    <h4><a href="#" id="come-back-link">Click here</a> to return Home page</h4>
+  </div>
+
+  </main>
+  <footer class="border-top pt-3 d-flex justify-content-center">
+    <h2> 2023©️ Pic to pick this site create and developed.<br>oshri zarbiv all rihgts reserved</h2>
+    <h2> </h2>
+  </footer>
+  </div>
+  <script src="../src/app.js" type="module"></script>
+</body>
+
 </html>
